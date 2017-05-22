@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>parallel coordinates </title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./lib/jquery-2.1.4.js"></script>
+    <script src="./lib/d3.v3.js"></script>
+    <script src="./lib/kmeans.js"></script>
+    <script src="./script/parallel.js"></script>
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="left"></div>
+        <br/><br/><br/>
+        <div id="right">
+            <div>
+                <br/>
+                <br/>
+                <table id="table_file">
+                    <tr>
+                        <td>选择文件:</td>
+                        <td>
+                        <form>
+                            <!--<input type="file" disabled="disabled" id="input_file">-->
+                            <input id="input_file" type="file" name="File" style="display:none" onchange="this.form.$File.value=this.value.split('\\')[this.value.split('\\').length-1]" />
+                            <input style="width: 100px" type="text" name="$File" />
+                            <input type="button" value="浏览" onclick="this.form.File.click()" />
+                            </form>
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>加载文件:</td>
+                        <td><input type="button" value="提交" onclick="readFile()" disabled="disabled"></td>
+                    </tr>
+                    <tr>
+                        <td>加载状态:</td>
+                        <td><span id="file_status" ></span></td>
+                    </tr>
+                    <tr>
+                        <td>维度个数:</td>
+                        <td><span id="pro_nums" ></span></td>
+                    </tr>
+                    <tr>
+                        <td>文件大小:</td>
+                        <td><span id="data_nums" ></span></td>
+                    </tr>
+                    <tr>
+                        <td>正常数据:</td>
+                        <td><span id="normal_nums" ></span></td>
+                    </tr>
+                    <tr>
+                        <td>异常数据:</td>
+                        <td><span id="abnormal_nums" ></span></td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <hr>
+            <div style="margin-top: 20px;margin-bottom: 20px;margin-left: auto">
+                <label>切换类型:</label>
+                <input type="button" id="choseType" value="传统平行坐标" disabled="disabled" onclick="changeParallelType(event)">
+            </div>
+            <hr>
+            <div style="margin-top: 20px;margin-bottom: 20px">
+                <table id="colorControl">
+                    <tr>
+                        <th>轴距参数</th>
+                        <th>透明度</th>
+                        <th>S</th>
+                        <th>L</th>
+                        <th>取消着色</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="offset" disabled="disabled" type="number" value="10" min="0" max="30" onchange="updateOffset(event)">%
+                        </td>
+                        <td>
+                            <input id="opacity" step="0.1" type="number" value="0.8" min="0.1" max="1" onchange="updateColor(event)">
+                        </td>
+                        <td>
+                            <input type="number" step="1" id="colorS" value="90" min="0" max="100" onchange="updateColor(event)">%
+                        </td>
+                        <td>
+                            <input type="number" id="colorL" value="40" min="0" max="100" onchange="updateColor(event)">%
+                        </td>
+                        <td>
+                            <input id="useColor" type="checkbox" onchange="updateColor(event)">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <hr>
+            <div>
+                <table id="table_control" style="margin-top: 20px"></table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
