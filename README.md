@@ -1,4 +1,4 @@
-# PC_Edge_Bundling
+# 平行坐标边捆绑算法
 
 ####
 
