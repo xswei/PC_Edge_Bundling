@@ -10,3 +10,14 @@
 用不同的颜色属性进行独立渲染。为了增强视觉有效性表达，设计了交互以高亮显示不同的组。
 
 
+Orgin Result:
+
+![image](https://github.com/xswei/PC_Edge_Bundling/blob/master/pic/orgin.png)
+
+Edge-Bundling Result:
+
+![image](https://github.com/xswei/PC_Edge_Bundling/blob/master/pic/result.png)
+
+Interaction Result:
+
+![image](https://github.com/xswei/PC_Edge_Bundling/blob/master/pic/result2.png)
